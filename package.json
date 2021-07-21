@@ -14,7 +14,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "version": "3.4.0-cafenono-0.4",
+  "version": "3.4.0-cafenono-0.5",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "files": [

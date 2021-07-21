@@ -35,7 +35,7 @@ import type {
 } from './types'
 import { debugging } from './utils'
 
-const { tension, friction } = config.default
+const { tension, friction } = config.gentle
 
 // @TODO implement AbortController to deal with race conditions
 
@@ -165,7 +165,7 @@ export const BottomSheet = React.forwardRef<
             velocity,
             ...config,
             // @see https://springs.pomb.us
-            mass: 1,
+            mass: 0.1,
             // "stiffness"
             tension,
             // "damping"
@@ -576,7 +576,7 @@ export const BottomSheet = React.forwardRef<
       send('SNAP', {
         payload: {
           y: newY,
-          velocity: velocity > 0.05 ? velocity : 1,
+          velocity: velocity > 0.05 ? velocity : 3,
           source: 'dragging',
         },
       })

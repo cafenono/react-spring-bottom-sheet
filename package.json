@@ -1,14 +1,20 @@
 {
-  "name": "react-spring-bottom-sheet",
+  "name": "@cafenono/react-spring-bottom-sheet",
   "description": "✨ Accessible, 🪄 Delightful, and 🤯 Performant. Built on react-spring for the web, and react-use-gesture.",
   "license": "MIT",
   "author": "Cody Olsen",
   "homepage": "https://react-spring-bottom-sheet.cocody.dev",
-  "repository": "stipsan/react-spring-bottom-sheet",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cafenono/react-spring-bottom-sheet.git"
+  },
   "bugs": {
     "url": "https://github.com/stipsan/react-spring-bottom-sheet/issues"
   },
-  "version": "3.4.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "version": "3.4.0-cafenono-0.4",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "files": [

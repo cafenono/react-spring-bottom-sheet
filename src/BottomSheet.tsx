@@ -489,8 +489,9 @@ export const BottomSheet = React.forwardRef<
     memo = spring.y.getValue() as number,
     movement: [, _my],
     tap,
-    velocity,
+    velocity: velocityVector,
   }) => {
+    const velocity = velocityVector[1]
     const my = _my * -1
 
     // Cancel the drag operation if the canDrag state changed
@@ -563,7 +564,7 @@ export const BottomSheet = React.forwardRef<
         newY = maxSnapRef.current
       }
 
-      preventScrollingRef.current = newY < maxSnapRef.current;
+      preventScrollingRef.current = newY < maxSnapRef.current
     } else {
       preventScrollingRef.current = false
     }

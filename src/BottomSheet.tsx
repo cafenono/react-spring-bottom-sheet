@@ -35,7 +35,7 @@ import type {
 } from './types'
 import { debugging } from './utils'
 
-const { tension, friction } = config.gentle
+const { tension, friction } = config.wobbly
 
 // @TODO implement AbortController to deal with race conditions
 
@@ -165,7 +165,7 @@ export const BottomSheet = React.forwardRef<
             velocity,
             ...config,
             // @see https://springs.pomb.us
-            mass: 0.1,
+            mass: 0.3,
             // "stiffness"
             tension,
             // "damping"
@@ -450,13 +450,13 @@ export const BottomSheet = React.forwardRef<
   useEffect(() => {
     const elem = scrollRef.current
 
-    const preventScrolling = e => {
+    const preventScrolling = (e) => {
       if (preventScrollingRef.current) {
         e.preventDefault()
       }
     }
 
-    const preventSafariOverscroll = e => {
+    const preventSafariOverscroll = (e) => {
       if (elem.scrollTop < 0) {
         requestAnimationFrame(() => {
           elem.style.overflow = 'hidden'
@@ -577,7 +577,7 @@ export const BottomSheet = React.forwardRef<
       send('SNAP', {
         payload: {
           y: newY,
-          velocity: velocity > 0.05 ? velocity : 3,
+          // velocity: 5,
           source: 'dragging',
         },
       })
@@ -667,7 +667,12 @@ export const BottomSheet = React.forwardRef<
             {header}
           </div>
         )}
-        <div key="scroll" data-rsbs-scroll ref={scrollRef} {...(expandOnContentDrag ? bind({ isContentDragging: true }) : {})}>
+        <div
+          key="scroll"
+          data-rsbs-scroll
+          ref={scrollRef}
+          {...(expandOnContentDrag ? bind({ isContentDragging: true }) : {})}
+        >
           <div data-rsbs-content ref={contentRef}>
             {children}
           </div>
